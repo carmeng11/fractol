@@ -33,8 +33,8 @@ int	main(int argc, char **argv)
 	t_fractal	fractal;
 
 
-	if ((2 == argc && !ft_strncmp(argv[1], "mandelbrot", 10))
-		|| (4 == argc && !ft_strncmp(argv[1], "julia", 5)))
+	if ((2 == argc && ft_strncmp(argv[1], "mandelbrot", 10) == 0)
+		|| (4 == argc && ft_strncmp(argv[1], "julia", 5) == 0))
 	{
 		fractal.name = argv[1];
 		if (!ft_strncmp(fractal.name, "julia", 5))

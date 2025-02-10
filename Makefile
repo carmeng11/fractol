@@ -10,7 +10,7 @@
 #                                                                            #
 # ************************************************************************** #
 
-NAME = fractol.a
+NAME = fractol
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror 
 MLX_DIR = ./minilibx-linux
