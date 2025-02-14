@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cagomez- <cagomez-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/10 19:15:59 by cagomez-          #+#    #+#             */
+/*   Updated: 2025/02/14 18:42:28 by cagomez-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 #include "minilibx-linux/mlx.h"
 #include <stdio.h>
@@ -59,7 +71,7 @@ void	fractal_init(t_fractal *fractal)
 {
 	//MLX stuff
 	fractal->mlx_connection = mlx_init();
-	if (NULL == fractal->mlx_connection)
+	if (fractal->mlx_connection == NULL)
 		malloc_error();
 	fractal->mlx_window = mlx_new_window(fractal->mlx_connection,
 										WIDTH,
