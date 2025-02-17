@@ -6,7 +6,7 @@
 /*   By: cagomez- <cagomez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 19:15:55 by cagomez-          #+#    #+#             */
-/*   Updated: 2025/02/14 20:20:08 by cagomez-         ###   ########.fr       */
+/*   Updated: 2025/02/17 19:32:02 by cagomez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,8 @@ int			close_handler(t_fractal *fractal);
 int			mouse_handler(int button, int x, int y, t_fractal *fractal);
 int			julia_track(int x, int y, t_fractal *fractal);
 
-int			t_str_isdigit(char *str);
-int			t_isdigit(int c);
+//int			ft_str_isdigit(char *str);
+//int			ft_isdigit(int c);
 void		check_julia(t_fractal *fractal, char **argv, int argc);
 
 #endif
