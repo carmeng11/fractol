@@ -6,12 +6,11 @@
 /*   By: cagomez- <cagomez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 19:16:03 by cagomez-          #+#    #+#             */
-/*   Updated: 2025/02/14 20:49:05 by cagomez-         ###   ########.fr       */
+/*   Updated: 2025/02/18 19:15:46 by cagomez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include "minilibx-linux/mlx.h"
 
 int	main(int argc, char **argv)
 {

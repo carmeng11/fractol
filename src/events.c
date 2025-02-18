@@ -6,12 +6,11 @@
 /*   By: cagomez- <cagomez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 19:15:49 by cagomez-          #+#    #+#             */
-/*   Updated: 2025/02/17 17:25:20 by cagomez-         ###   ########.fr       */
+/*   Updated: 2025/02/18 19:16:06 by cagomez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include "minilibx-linux/mlx.h"
 #include <X11/X.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -67,9 +66,9 @@ int	julia_track(int x, int y, t_fractal *fractal)
 {
 	if (!ft_strncmp(fractal->name, "julia", 5))
 	{
-		fractal->julia_x = (map(x, -2, +2, 0, WIDTH) * fractal->zoom)
+		fractal->julia_x = (map(x, -2, +2, WIDTH) * fractal->zoom)
 			+ fractal->shift_x;
-		fractal->julia_y = (map(y, +2, -2, 0, HEIGHT) * fractal->zoom)
+		fractal->julia_y = (map(y, +2, -2, HEIGHT) * fractal->zoom)
 			+ fractal->shift_y;
 		fractal_render(fractal);
 	}

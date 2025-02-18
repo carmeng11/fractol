@@ -1,15 +1,14 @@
-# ************************************************************************** #
-#                                                                            #
-#                                                        :::      ::::::::   #
-#   Makefile                                           :+:      :+:    :+:   #
-#                                                    +:+ +:+         +:+     #
-#   By: pablalva <pablalva@student.42madrid.com>   #+#  +:+       +#+        #
-#                                                +#+#+#+#+#+   +#+           #
-#   Created: 2024-10-28 10:44:11 by pablalva          #+#    #+#             #
-#   Updated: 2024-10-28 10:44:11 by pablalva         ###   ########.fr       #
-#                                                                            #
-# ************************************************************************** #
-
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: cagomez- <cagomez-@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/02/17 19:58:37 by cagomez-          #+#    #+#              #
+#    Updated: 2025/02/18 19:13:21 by cagomez-         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 NAME = fractol
 CC = gcc
@@ -17,7 +16,7 @@ CFLAGS = -Wall -Wextra -Werror
 MLX_DIR = ./minilibx-linux
 LIBS = -L$(MLX_DIR) -lmlx -lX11 -lXext 
 
-SRCS = main.c events.c init.c math_utils.c render.c string_utils.c
+SRCS = src/main.c src/events.c src/init.c src/math_utils.c src/render.c src/string_utils.c
 OBJS = $(SRCS:.c=.o)
 
 all:  $(NAME)
