@@ -32,7 +32,7 @@ static void	events_init(t_fractal *fractal)
 			KeyPress,//cuando se presiona una tecla del teclado se llama a la función key_handler
 			KeyPressMask,
 			key_handler,
-			fractal);
+			fractal);//que es fractal aquí? int (*funct)(),void *param) essto indica la función de la librería
 	mlx_hook(fractal->mlx_window, 
 			ButtonPressMask,
 			mouse_handler,//se asocia al evento de hacer click con el ratón en la ventana se llama a la función mouse_handler
@@ -85,7 +85,8 @@ void	fractal_init(t_fractal *fractal)
 		free(fractal->mlx_connection); ptr:
 		malloc_error();
 	}
-	fractal->img.pixels_ptr = mlx_get_data_addr(fractal->img.img_ptr,//Esta línea obtiene la dirección de memoria donde se almacenan los píxeles de la imagen creada
+	fractal->img.pixels_ptr = mlx_get_data_addr(fractal->img.img_ptr,//Esta línea obtiene la dirección de memoria 
+	//donde se almacenan los píxeles de la imagen creada
 												&fractal->img.bpp,//se obtienen los bytes por pixel
 												&fractal->img.line_len,//la longitud de línea de la imagen
 												&fractal->img.endian);//y el orden de los bytes 

@@ -6,7 +6,7 @@
 /*   By: cagomez- <cagomez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 19:15:55 by cagomez-          #+#    #+#             */
-/*   Updated: 2025/02/18 19:37:45 by cagomez-         ###   ########.fr       */
+/*   Updated: 2025/02/21 18:18:19 by cagomez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ fractol julia <value_1> <value_2>\"\n"
 # define ERROR_MESSAGE2 "Please enter correct value for julia \n\t\"./fractol\
  mandelbrot\" or \n\t\"./fractol julia <number value 1> <number value 2>\"\n"
 
-# define WIDTH	800
-# define HEIGHT	800
+# define WIDTH	1200
+# define HEIGHT	1200
 # define BLACK       0x000000  // RGB(0, 0, 0)
 # define WHITE       0xFFFFFF  // RGB(255, 255, 255)
 # define RED         0xFF0000  // RGB(255, 0, 0)

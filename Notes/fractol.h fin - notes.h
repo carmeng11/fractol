@@ -107,12 +107,6 @@ typedef struct	s_fractal
 
 
 
-
-
-
-
-
-
 /*
  * PROTOTYPES
  * They are basically IOUs to the compiler
