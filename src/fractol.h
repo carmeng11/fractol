@@ -6,7 +6,7 @@
 /*   By: cagomez- <cagomez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 19:15:55 by cagomez-          #+#    #+#             */
-/*   Updated: 2025/02/24 20:20:39 by cagomez-         ###   ########.fr       */
+/*   Updated: 2025/02/25 19:51:46 by cagomez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,25 +84,25 @@ double		atodbl(char *s);
 
 void		fractal_init(t_fractal *fractal);
 
-//void		fractal_render(t_fractal *fractal);
 void		fractal_render(t_fractal *fractal);
 
 double		map(double unscaled_num, double new_min,
 				double new_max, double old_max);
 t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
+t_complex	sum_complex_abs(t_complex z1, t_complex z2);
+t_complex	square_complex_abs(t_complex z);
 
 int			key_handler(int keysym, t_fractal *fractal);
 
 int			close_handler(t_fractal *fractal);
-int			mouse_handler(int button, int x, int y, t_fractal *fractal);
+int			mouse_handler(int button, int x, int y, void *param);
 int			julia_track(int x, int y, t_fractal *fractal);
 
 //int			ft_str_isdigit(char *str);
 //int			ft_isdigit(int c);
 void		check_julia(t_fractal *fractal, char **argv, int argc);
-void		fractal_render2(t_fractal *fractal);
-t_complex	sum_complex_abs(t_complex z1, t_complex z2);
-t_complex	square_complex_abs(t_complex z);
+void	zoom_in(t_fractal *fractal, int x, int y);
+void	zoom_out(t_fractal *fractal, int x, int y);
 
 #endif
