@@ -6,7 +6,7 @@
 /*   By: cagomez- <cagomez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 19:15:49 by cagomez-          #+#    #+#             */
-/*   Updated: 2025/02/20 20:47:44 by cagomez-         ###   ########.fr       */
+/*   Updated: 2025/02/24 19:07:38 by cagomez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ int	key_handler(int keysym, t_fractal *fractal)
 	else if (keysym == XK_minus)
 		fractal->iterations_defintion -= 10;
 	fractal_render(fractal);
+	if (keysym == XK_c)
+	{
+		fractal->colorchange = (fractal->colorchange + 1) % 2;
+		fractal_render(fractal);
+	}
 	return (0);
 }
 

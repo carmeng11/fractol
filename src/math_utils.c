@@ -6,7 +6,7 @@
 /*   By: cagomez- <cagomez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 19:16:13 by cagomez-          #+#    #+#             */
-/*   Updated: 2025/02/17 20:53:46 by cagomez-         ###   ########.fr       */
+/*   Updated: 2025/02/25 16:57:59 by cagomez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,23 @@ t_complex	square_complex(t_complex z)
 
 	result.x = (z.x * z.x) - (z.y * z.y);
 	result.y = 2 * z.x * z.y;
+	return (result);
+}
+
+t_complex	sum_complex_abs(t_complex z1, t_complex z2)
+{
+	t_complex	result;
+
+	result.x = (z1.x) + (z2.x);
+	result.y = (z1.y) + (z2.y);
+	return (result);
+}
+
+t_complex	square_complex_abs(t_complex z)
+{
+	t_complex	result;
+
+	result.x = fabs(z.x) * fabs(z.x) - fabs(z.y) * fabs(z.y);
+	result.y = 2 * fabs(z.x) * fabs(z.y);
 	return (result);
 }

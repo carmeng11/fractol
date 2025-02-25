@@ -6,7 +6,7 @@
 /*   By: cagomez- <cagomez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 19:16:17 by cagomez-          #+#    #+#             */
-/*   Updated: 2025/02/21 20:14:25 by cagomez-         ###   ########.fr       */
+/*   Updated: 2025/02/25 16:57:24 by cagomez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,28 +34,6 @@ static void	mandel_vs_julia(t_complex *z, t_complex *c, t_fractal *fractal)
 	}
 }
 
-/*
- * 						 ✅ map()
-		   	0__________800     -2___________+2    
- *			|			 |     |            |
- *			|			 |	   |            |
- *		800	|			 |     |            |
- *			|			 |     |            |
- *			|			 |     |            |
- *			|____________|     |____________|
-
- *	
- *		MANDELBROT
- *		z = z^2 + c
- *		z initially is (0, 0)
- *		c is the actual point
- *
- *		z = z^2 + c -> z1 = c + c
- *
- *		JULIA
- *		./fractol julia <real> <i> 
- *		z = pixel_point + constant
-*/
 static void	handle_pixel(int x, int y, t_fractal *fractal)
 {
 	t_complex	z;
@@ -65,11 +43,14 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 
 	i = 0;
 	z.x = (map(x, -2, +2, WIDTH) * fractal->zoom) + fractal->shift_x;
-	z.y = (map(y, +2, -2, HEIGHT) * fractal->zoom) + fractal->shift_y;
+	z.y = (map(y, -2, +2, HEIGHT) * fractal->zoom) + fractal->shift_y;
 	mandel_vs_julia(&z, &c, fractal);
 	while (i < fractal->iterations_defintion)
 	{
-		z = sum_complex(square_complex(z), c);
+		if (!ft_strncmp(fractal->name, "burningship", 11))
+			z = sum_complex_abs(square_complex_abs(z), c);
+		else
+			z = sum_complex(square_complex(z), c);
 		if ((z.x * z.x) + (z.y * z.y) > fractal->escape_value)
 		{
 			color = map(i, WHITE, BLACK, fractal->iterations_defintion);
@@ -80,18 +61,34 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 	}
 	my_pixel_put(x, y, &fractal->img, PSYCHEDELIC_PURPLE);
 }
-/*
- * Actual 🍖
- *
- * 				
- *		   	____800_______
- *			|			 |
- *			|			 |
- *		800	|			 |
- *			|			 |
- *			|			 |
- *			|____________|
-*/
+
+static void	handle_pixel2(int x, int y, t_fractal *fractal)
+{
+	t_complex	z;
+	t_complex	c;
+	int			i;
+	int			color;
+
+	i = 0;
+	z.x = (map(x, -2, +2, WIDTH) * fractal->zoom) + fractal->shift_x;
+	z.y = (map(y, -2, +2, HEIGHT) * fractal->zoom) + fractal->shift_y;
+	mandel_vs_julia(&z, &c, fractal);
+	while (i < fractal->iterations_defintion)
+	{
+		if (!ft_strncmp(fractal->name, "burningship", 11))
+			z = sum_complex_abs(square_complex_abs(z), c);
+		else
+			z = sum_complex(square_complex(z), c);
+		if ((z.x * z.x) + (z.y * z.y) > fractal->escape_value)
+		{
+			color = map(i, BLACK, WHITE, fractal->iterations_defintion);
+			my_pixel_put(x, y, &fractal->img, color);
+			return ;
+		}
+		++i;
+	}
+	my_pixel_put(x, y, &fractal->img, WHITE);
+}
 
 void	fractal_render(t_fractal *fractal)
 {
@@ -104,7 +101,10 @@ void	fractal_render(t_fractal *fractal)
 		x = -1;
 		while (++x < WIDTH)
 		{
-			handle_pixel(x, y, fractal);
+			if (fractal->colorchange == 1)
+				handle_pixel2(x, y, fractal);
+			else
+				handle_pixel(x, y, fractal);
 		}
 	}
 	mlx_put_image_to_window(fractal->mlx_connection,

@@ -6,7 +6,7 @@
 /*   By: cagomez- <cagomez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 19:15:55 by cagomez-          #+#    #+#             */
-/*   Updated: 2025/02/21 18:18:19 by cagomez-         ###   ########.fr       */
+/*   Updated: 2025/02/24 20:20:39 by cagomez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ typedef struct s_fractal
 
 	double	escape_value;
 	int		iterations_defintion;
+	int		colorchange;
 	double	shift_x;
 	double	shift_y;
 	double	zoom;
@@ -83,6 +84,7 @@ double		atodbl(char *s);
 
 void		fractal_init(t_fractal *fractal);
 
+//void		fractal_render(t_fractal *fractal);
 void		fractal_render(t_fractal *fractal);
 
 double		map(double unscaled_num, double new_min,
@@ -99,5 +101,8 @@ int			julia_track(int x, int y, t_fractal *fractal);
 //int			ft_str_isdigit(char *str);
 //int			ft_isdigit(int c);
 void		check_julia(t_fractal *fractal, char **argv, int argc);
+void		fractal_render2(t_fractal *fractal);
+t_complex	sum_complex_abs(t_complex z1, t_complex z2);
+t_complex	square_complex_abs(t_complex z);
 
 #endif
