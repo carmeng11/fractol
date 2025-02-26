@@ -6,7 +6,7 @@
 /*   By: cagomez- <cagomez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 19:16:17 by cagomez-          #+#    #+#             */
-/*   Updated: 2025/02/25 16:57:24 by cagomez-         ###   ########.fr       */
+/*   Updated: 2025/02/26 20:52:04 by cagomez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 	while (i < fractal->iterations_defintion)
 	{
 		if (!ft_strncmp(fractal->name, "burningship", 11))
-			z = sum_complex_abs(square_complex_abs(z), c);
+			z = sum_complex(square_complex_abs(z), c);
 		else
 			z = sum_complex(square_complex(z), c);
 		if ((z.x * z.x) + (z.y * z.y) > fractal->escape_value)
 		{
-			color = map(i, WHITE, BLACK, fractal->iterations_defintion);
+			color = map(i, AQUA_DREAM, WHITE, fractal->iterations_defintion);
 			my_pixel_put(x, y, &fractal->img, color);
 			return ;
 		}
@@ -76,18 +76,18 @@ static void	handle_pixel2(int x, int y, t_fractal *fractal)
 	while (i < fractal->iterations_defintion)
 	{
 		if (!ft_strncmp(fractal->name, "burningship", 11))
-			z = sum_complex_abs(square_complex_abs(z), c);
+			z = sum_complex(square_complex_abs(z), c);
 		else
 			z = sum_complex(square_complex(z), c);
 		if ((z.x * z.x) + (z.y * z.y) > fractal->escape_value)
 		{
-			color = map(i, BLACK, WHITE, fractal->iterations_defintion);
+			color = map(i, WHITE, AQUA_DREAM, fractal->iterations_defintion);
 			my_pixel_put(x, y, &fractal->img, color);
 			return ;
 		}
 		++i;
 	}
-	my_pixel_put(x, y, &fractal->img, WHITE);
+	my_pixel_put(x, y, &fractal->img, MAGENTA_BURST);
 }
 
 void	fractal_render(t_fractal *fractal)

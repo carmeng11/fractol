@@ -6,7 +6,7 @@
 /*   By: cagomez- <cagomez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 19:16:20 by cagomez-          #+#    #+#             */
-/*   Updated: 2025/02/18 19:00:45 by cagomez-         ###   ########.fr       */
+/*   Updated: 2025/02/26 20:55:13 by cagomez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_strncmp(char *s1, char *s2, int n)
 {
-	if (NULL == s1 || NULL == s2 || n <= 0)
+	if (s1 == NULL || s2 == NULL || n <= 0)
 		return (0);
 	while (*s1 == *s2 && n > 0 && *s1 != '\0')
 	{
@@ -27,7 +27,7 @@ int	ft_strncmp(char *s1, char *s2, int n)
 
 void	putstr_fd(char *s, int fd)
 {
-	if (NULL == s || fd < 0)
+	if (s == NULL || fd < 0)
 		return ;
 	if (*s != '\0')
 	{

@@ -6,7 +6,7 @@
 /*   By: cagomez- <cagomez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 19:15:49 by cagomez-          #+#    #+#             */
-/*   Updated: 2025/02/25 19:55:34 by cagomez-         ###   ########.fr       */
+/*   Updated: 2025/02/26 21:20:34 by cagomez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int	key_handler(int keysym, t_fractal *fractal)
 // 	fractal_render(fractal);
 // 	return (0);
 // }
+
 int	mouse_handler(int button, int x, int y, void *param)
 {
 	t_fractal	*fractal;
@@ -81,13 +82,38 @@ int	mouse_handler(int button, int x, int y, void *param)
 	{
 		zoom_out(fractal, x, y);
 	}
-	else if (button == Button4)
+	if (button == Button4)
 	{
 		zoom_in(fractal, x, y);
 	}
 	fractal_render(fractal);
 	return (0);
 }
+
+// int	mouse_handler(int button, int x, int y, t_fractal *fractal)
+// {
+// 	double	zoom_factor;
+// 	double	cx;
+// 	double	cy;
+
+// 	cx = (x - WIDTH / 2) / (0.5 * fractal->zoom * WIDTH) + fractal->shift_x;
+// 	cy = (y - HEIGHT / 2) / (0.5 * fractal->zoom * HEIGHT) + fractal->shift_y;
+// 	zoom_factor = 1.1;
+// 	mlx_destroy_display(fractal->mlx_connection);
+// 	fractal->img.img_ptr = mlx_new_image(fractal->mlx_connection,
+// 			WIDTH, HEIGHT);
+// 	fractal->img.pixels_ptr = mlx_get_data_addr(fractal->img.img_ptr,
+// 			&fractal->img.bpp, &fractal->img.line_len,
+// 			&fractal->img.endian);
+// 	if (button == 4)
+// 		fractal->zoom *= zoom_factor;
+// 	else if (button == 5)
+// 		fractal->zoom /= (zoom_factor * 1.1);
+// 	fractal->shift_x = cx - ((x - WIDTH / 2.0) / (0.5 * fractal->zoom * WIDTH));
+// 	fractal->shift_x = cy - ((y - HEIGHT / 2.0) / (0.5 * fractal->zoom * HEIGHT));
+// 	fractal_render(fractal);
+// 	return (0);
+// }
 
 int	julia_track(int x, int y, t_fractal *fractal)
 {
@@ -104,43 +130,36 @@ int	julia_track(int x, int y, t_fractal *fractal)
 
 void	zoom_in(t_fractal *fractal, int x, int y)
 {
+	double range;
 	double	mouse_re;
 	double	mouse_img;
-	double	x_min;
-	double	y_min;
-	double	x_max;
-	double	y_max;
-	
-	x_max = 2.0;
-	x_min = -2.0;
-	y_min = -2.0;
-	y_max = 2.0;
-	mouse_re = x_min + (x / WIDTH) * (x_max - x_min);
-	mouse_img = y_min + (y / HEIGHT) * (y_max - y_min);
+		
+	range = 4.0 / fractal->zoom;
+		mouse_re = fractal->x_min + (x / (double)fractal->width) * (fractal->x_max - fractal->x_min);
+	mouse_img = fractal->y_min + (y / (double)fractal->height) * (fractal->y_max - fractal->y_min);
 	fractal->zoom *= 1.1;
-	x_min = mouse_re - (mouse_re - x_min) / 1.1;
-	x_max = mouse_re + (x_max - mouse_re) / 1.1;
-	y_min = mouse_img - (mouse_img - y_min) / 1.1;
-	y_max = mouse_img + (y_max - mouse_img) / 1.1;
+	range = 4.0 / fractal->zoom;
+	fractal->x_min = mouse_re - range * (fractal->move_x / (double)fractal->move_y);
+	fractal->x_max = mouse_re + range * (fractal->move_x/ (double)fractal->move_y);
+    fractal->y_min = mouse_img - range;
+    fractal->y_max = mouse_img + range;
 }
+
+
 void	zoom_out(t_fractal *fractal, int x, int y)
 {
+	double	range;
 	double	mouse_re;
 	double	mouse_img;
-	double	x_min;
-	double	y_min;
-	double	x_max;
-	double	y_max;
-	
-	x_max = 2.0;
-	x_min = -2.0;
-	y_min = -2.0;
-	y_max = 2.0;
-	mouse_re = x_min + (x / WIDTH) * (x_max - x_min);
-	mouse_img = y_min + (y / HEIGHT) * (y_max - y_min);
-	fractal->zoom /= 1.1;
-	x_min = mouse_re - (mouse_re - x_min) * 1.1;
-	x_max = mouse_re + (x_max - mouse_re) * 1.1;
-	y_min = mouse_img - (mouse_img - y_min) * 1.1;
-	y_max = mouse_img + (y_max - mouse_img) * 1.1;
+
+	range = 4.0 / fractal->zoom;	
+	mouse_re = fractal->x_min + (x / (double)fractal->width) * (fractal->x_max - fractal->x_min);
+	mouse_img = fractal->y_min + (y / (double)fractal->height) * (fractal->y_max - fractal->y_min);
+	fractal->zoom *= 0.9;
+	range = 4.0 / fractal->zoom;
+	fractal->x_min = mouse_re - range * (fractal->move_x / (double)fractal->move_y);
+    fractal->x_max = mouse_re + range * (fractal->move_x / (double)fractal->move_y);
+	fractal->y_min = mouse_img - range;
+	fractal->y_max = mouse_img + range;
 }
+

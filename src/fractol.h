@@ -6,16 +6,16 @@
 /*   By: cagomez- <cagomez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 19:15:55 by cagomez-          #+#    #+#             */
-/*   Updated: 2025/02/25 19:51:46 by cagomez-         ###   ########.fr       */
+/*   Updated: 2025/02/26 21:21:15 by cagomez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include <stdio.h> //TODO debugging
-# include <stdlib.h> //malloc free
-# include <unistd.h> // write
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
 # include <math.h>
 # include <X11/X.h>
 # include <X11/keysym.h>
@@ -26,8 +26,8 @@ fractol julia <value_1> <value_2>\"\n"
 # define ERROR_MESSAGE2 "Please enter correct value for julia \n\t\"./fractol\
  mandelbrot\" or \n\t\"./fractol julia <number value 1> <number value 2>\"\n"
 
-# define WIDTH	1200
-# define HEIGHT	1200
+# define WIDTH	800
+# define HEIGHT	800
 # define BLACK       0x000000  // RGB(0, 0, 0)
 # define WHITE       0xFFFFFF  // RGB(255, 255, 255)
 # define RED         0xFF0000  // RGB(255, 0, 0)
@@ -76,6 +76,14 @@ typedef struct s_fractal
 	double	zoom;
 	double	julia_x;
 	double	julia_y;
+	double	move_x;
+	double	move_y;
+	double	x_min;
+	double	x_max;
+	double	y_min;
+	double	y_max;
+	int		height;
+	int		width;
 }				t_fractal;
 
 int			ft_strncmp(char *s1, char *s2, int n);
@@ -90,7 +98,6 @@ double		map(double unscaled_num, double new_min,
 				double new_max, double old_max);
 t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
-t_complex	sum_complex_abs(t_complex z1, t_complex z2);
 t_complex	square_complex_abs(t_complex z);
 
 int			key_handler(int keysym, t_fractal *fractal);
@@ -99,10 +106,9 @@ int			close_handler(t_fractal *fractal);
 int			mouse_handler(int button, int x, int y, void *param);
 int			julia_track(int x, int y, t_fractal *fractal);
 
-//int			ft_str_isdigit(char *str);
-//int			ft_isdigit(int c);
 void		check_julia(t_fractal *fractal, char **argv, int argc);
-void	zoom_in(t_fractal *fractal, int x, int y);
-void	zoom_out(t_fractal *fractal, int x, int y);
+void		zoom_in(t_fractal *fractal, int x, int y);
+void		zoom_out(t_fractal *fractal, int x, int y);
+double		ft_fabs(double x);
 
 #endif

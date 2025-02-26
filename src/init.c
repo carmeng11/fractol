@@ -6,7 +6,7 @@
 /*   By: cagomez- <cagomez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 19:15:59 by cagomez-          #+#    #+#             */
-/*   Updated: 2025/02/25 19:41:58 by cagomez-         ###   ########.fr       */
+/*   Updated: 2025/02/26 19:06:09 by cagomez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
- * If MALLOC goes bad (improbable)
-*/
 static void	malloc_error(void)
 {
 	perror("Problems with malloc");
@@ -31,6 +28,12 @@ static void	data_init(t_fractal *fractal)
 	fractal->shift_y = 0.0;
 	fractal->zoom = 1.0;
 	fractal->colorchange = 0;
+	fractal->width = 800;
+	fractal->height = 800;
+	fractal->x_min = -2.0;
+	fractal->x_max = 2.0;
+	fractal->y_min = -2.0;
+	fractal->y_max = 2.0;	
 }
 
 static void	events_init(t_fractal *fractal)
