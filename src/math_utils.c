@@ -6,7 +6,7 @@
 /*   By: cagomez- <cagomez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 19:16:13 by cagomez-          #+#    #+#             */
-/*   Updated: 2025/02/26 20:56:36 by cagomez-         ###   ########.fr       */
+/*   Updated: 2025/02/28 17:50:20 by cagomez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ t_complex	square_complex_abs(t_complex z)
 	result.y = 2 * ft_fabs(z.x) * ft_fabs(z.y);
 	return (result);
 }
+
 double	ft_fabs(double x)
 {
 	if (x < 0)
