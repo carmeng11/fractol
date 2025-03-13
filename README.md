@@ -1,7 +1,6 @@
 Hola!!  
 Esta guía pretende ayudar a tod@s los que os sentís un poco perdidos cuando os  enfrentáis por primera vez a un proyecto sobre fractales. Lo que empezaron siendo apuntes para mi propio estudio y entendimiento decidí compartirlo para facilitar el camino, sobre todo si os sentís superados por el proyecto, bien porque nunca habéis trabajo con la librería gráfica, o porque pensáis que las matemáticas del proyecto son demasiado complejas.
-Espero que os facilite el camino todo el tiempo que yo dediqué a investigar las guias, recursos  y vídeos que consulté.
-En el repositorio dejo este documento sobre la teoría de los fractales, los archivos de los que se compone el proyecto y el proyecto en sí, donde hay dos carpetas, la carpeta src contiene el código limpio de comentarios, y la carpeta notes, donde están los ficheros con las mismas funciones explicadas paso a paso. 
+Espero que os facilite el camino, en el repositorio dejo este documento sobre la teoría de los fractales, los archivos de los que se compone el proyecto y el proyecto en sí, donde hay dos carpetas, la carpeta src contiene el código limpio de comentarios, y la carpeta notes, donde están los ficheros con las mismas funciones explicadas paso a paso. 
 Mi proyecto tiene la parte bonus integrada, todos los puntos excepto uno, que espero en un futuro completarlo.
 
 
