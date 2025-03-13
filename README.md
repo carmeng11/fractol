@@ -20,16 +20,18 @@ Si no pertenece al conjunto de Mandelbrot, entonces el conjunto de Julia corresp
 
 
 En resumen:
-- **Mandelbrot**Esquema global donde estudiamos cómo cambia las trayectorias según variamos \(c\).
-- **Julia**: Estudia las trayectorias específicas resultantes desde diferentes valores iniciales dados ese mismo parámetro fijo (\(c\)).
+- **Mandelbrot:** Esquema global donde estudiamos cómo cambia las trayectorias según variamos \(c\).
+- **Julia:** Estudia las trayectorias específicas resultantes desde diferentes valores iniciales dados ese mismo parámetro fijo (\(c\)).
 . **Estructura Fractal**: Tanto el conjunto de Mandelbrot como los conjuntos de Julia son fractales, lo que significa que tienen estructuras que se repiten a diferentes escalas.
 .Al hacer zoom en cualquier parte del conjunto, se pueden encontrar estructuras similares a las originales.
-1. Diseño de la estructura de archivos
-main.c: Archivo principal donde se manejarán los argumentos de la línea de comandos, se inicializarán los parámetros de la ventana y se llamarán las funciones que gestionarán los fractales.
-init.c: Aquí están las funciones para la conexión con la librería gráfica MiniLibX,  y donde definimos algunos de los valores de nuestro fractal como el valor de escape, número de iteraciones, zoom y valores de desplazamiento del eje x e y.
-events.c: Funciones donde se representan las interacciones del usuario con la ventana, eventos de teclado, ratón.
-fractol.c: Funciones que calculan los conjuntos de Mandelbrot y Julia. Aquí se manejan las ecuaciones matemáticas y la profundidad de los fractales. Este archivo no se utiliza en el proyecto, la fórmula matemática se utiliza en la función handle_pixel.c, pero este fichero es fundamental si queréis entender cómo se genera en fractal con la fórmula en el plano complejo, formado por un eje real, el eje x y un eje imaginario, el eje y.
-render.c: Funciones encargadas de renderizar los fractales en la ventana utilizando la miniLibX.
-string_utils.c: Funciones auxiliares como el manejo de parámetros de entrada, conversión de valores, y otras funciones comunes (por ejemplo, manejo de errores, y de memoria).
-math_utils.c: Funciones matemáticas como hallar la suma y el cuadrado de números complejos o el mapeo del eje de coordenadas del plano de la ventana en pixeles al plano complejo donde se dibuja el fractal.
-makefile: Un Makefile para compilar el proyecto con las reglas all, clean, fclean y re
+
+**Diseño de la estructura de archivos:**
+
+- **main.c:** Archivo principal donde se manejarán los argumentos de la línea de comandos, se inicializarán los parámetros de la ventana y se llamarán las funciones que gestionarán los fractales.
+- **init.c:** Aquí están las funciones para la conexión con la librería gráfica MiniLibX,  y donde definimos algunos de los valores de nuestro fractal como el valor de escape, número de iteraciones, zoom y valores de desplazamiento del eje x e y.
+- **events.c:** Funciones donde se representan las interacciones del usuario con la ventana, eventos de teclado, ratón.
+- **fractol.c:** Funciones que calculan los conjuntos de Mandelbrot y Julia. Aquí se manejan las ecuaciones matemáticas y la profundidad de los fractales. Este archivo no se utiliza en el proyecto, la fórmula matemática se utiliza en la función handle_pixel.c, pero este fichero es fundamental si queréis entender cómo se genera en fractal con la fórmula en el plano complejo, formado por un eje real, el eje x y un eje imaginario, el eje y.
+- **render.c:** Funciones encargadas de renderizar los fractales en la ventana utilizando la miniLibX.
+- **string_utils.c:** Funciones auxiliares como el manejo de parámetros de entrada, conversión de valores, y otras funciones comunes (por ejemplo, manejo de errores, y de memoria).
+- **math_utils.c:** Funciones matemáticas como hallar la suma y el cuadrado de números complejos o el mapeo del eje de coordenadas del plano de la ventana en pixeles al plano complejo donde se dibuja el fractal.
+- **makefile:** Un Makefile para compilar el proyecto con las reglas all, clean, fclean y re
