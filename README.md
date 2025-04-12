@@ -4,7 +4,7 @@ Espero que os facilite el camino, en el repositorio dejo este documento sobre la
 Mi proyecto tiene la parte bonus integrada, todos los puntos excepto uno, que espero en un futuro completarlo.
 
 
-*Fractales de Mandelbrot y Julia*
+**Fractales de Mandelbrot y Julia**
 
 Los conjuntos de mandelbrot y julia son dos tipos de fractales que se generan a partir de funciones complejas, son conjuntos en el plano complejo que se definen a partir de la iteración de una fórmula, y tienen representaciones visuales muy atractivas.
 \[ z_{n+1} = z_n^2 + c \]
