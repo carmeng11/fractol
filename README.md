@@ -36,5 +36,6 @@ En resumen:
 - **math_utils.c:** Funciones matemáticas como hallar la suma y el cuadrado de números complejos o el mapeo del eje de coordenadas del plano de la ventana en pixeles al plano complejo donde se dibuja el fractal.
 - **makefile:** Un Makefile para compilar el proyecto con las reglas all, clean, fclean y re
 ```markdown
-![Logo](burningship_rosa.png)
+![Logo]!(https://github.com/tu-usuario/tu-repositorio/blob/main/images/logo.png?raw=true)
+
 ```
