@@ -35,7 +35,10 @@ En resumen:
 - **string_utils.c:** Funciones auxiliares como el manejo de parámetros de entrada, conversión de valores, y otras funciones comunes (por ejemplo, manejo de errores, y de memoria).
 - **math_utils.c:** Funciones matemáticas como hallar la suma y el cuadrado de números complejos o el mapeo del eje de coordenadas del plano de la ventana en pixeles al plano complejo donde se dibuja el fractal.
 - **makefile:** Un Makefile para compilar el proyecto con las reglas all, clean, fclean y re.
-Os dejo imágenes de como quedaron los fractales de mandelbrot, julia y el del bonus, el burningship.
+  
+  Os dejo imágenes de como quedaron los fractales de mandelbrot, julia y el del bonus, el burningship.
+
+  
 ![Logo](mandelbrot.png)
 ![Logo](julia.png)
 ![Logo](burningship_azul.png)
