@@ -10,9 +10,7 @@ Los conjuntos de mandelbrot y julia son dos tipos de fractales que se generan a 
 \[ z_{n+1} = z_n^2 + c \]
 En el conjunto de mandelbrot z es un número complejo que comienza en 0 y c tb es un número complejo que representa cada punto en el plano. El conjunto incluye aquellos valores de c para los cuales la secuencia generada no tiende al infinito cuando se itera.
 En el conjunto de julia (comienza con diferentes valores para z y c es fijo)
-Para un número complejo fijo \( c \), el conjunto de Julia correspondiente se define utilizando la misma función:
-
-\[ z_{n+1} = z_n^2 + c \]
+Para un número complejo fijo \( c \), el conjunto de Julia correspondiente se define utilizando la misma función: \[ z_{n+1} = z_n^2 + c \]
 Sin embargo, aquí comenzamos con diferentes valores iniciales para \( z_0 \). El resultado es otro fractal, cuyo aspecto depende del valor específico elegido para \( c \)
 El conjunto de Julia para un valor fijo de c se define como el conjunto de puntos que no tienden al infinito cuando se aplica la iteración repetidamente.
 Si pertenece al conjunto de Mandelbrot, entonces el conjunto de Julia correspondiente es conexo, es decir, está "unido" en una sola pieza.
