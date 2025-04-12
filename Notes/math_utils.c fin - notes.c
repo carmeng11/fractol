@@ -45,7 +45,7 @@ t_complex   square_complex(t_complex z)
 z^2 = (x^2 - y^2) + 2 * x * yi; ***necesitamos la función de calcular el cuadrado de un num complejo
       *****El num real es (x^2 - y^2)
       *****El num imaginario es (2 * x * yi)
-z = ((x^2 - y^2) + 2 * x * yi) + c: ****necesitamos la función de calcular la suman del cuadrado de z + c*/
+z = ((x^2 - y^2) + 2 * x * yi) + c: ****necesitamos la función de calcular la suma del cuadrado de z + c*/
 
 
 
