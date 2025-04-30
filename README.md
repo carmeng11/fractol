@@ -37,7 +37,7 @@ En resumen:
   Os dejo imágenes de como quedaron los fractales de mandelbrot, julia y el del bonus, el burningship.
 
   
-![Logo](mandelbrot.png)![Logo](julia.png)
-![Logo](burningship_azul.png) ![Logo](burningship_rosa.png)
+![Logo](images/mandelbrot.png)![Logo](images/julia.png)
+![Logo](images/burningship_azul.png) ![Logo](images/burningship_rosa.png)
 
 
